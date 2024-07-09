@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { Billboard } from "@/types";
+import { Billboard, Routes } from "@/types";
 
 interface MainNavProps {
   data: Billboard[]
@@ -15,7 +15,7 @@ const MainNav: React.FC<MainNavProps> = ({
 }) => {
   const pathname = usePathname();
 
-  const routes = data.map((route) => ({
+  const routes: Routes[] = data.map((route) => ({
     href: `/billboard/${route.id}`,
     label: route.label,
     active: pathname === `/billboard/${route.id}`
@@ -23,7 +23,7 @@ const MainNav: React.FC<MainNavProps> = ({
 
   return (
     <nav
-      className="mx-6 flex items-center space-x-4 lg:space-x-6"
+      className="hidden md:flex mx-6 items-center space-x-4 lg:space-x-6"
     >
       {routes.map((route) => (
         <Link
