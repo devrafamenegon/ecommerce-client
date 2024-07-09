@@ -37,3 +37,9 @@ export interface Image {
   id: string;
   url: string;
 }
+
+export interface Routes {
+  href: string,
+  label: string,
+  active: boolean
+}
